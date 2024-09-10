@@ -2,6 +2,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { MenuIcon } from "lucide-react";
 import {RegisterLink, LoginLink, LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import Link from 'next/link'
+import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
 export async function UserNav(){
     const{getUser} = getKindeServerSession()
@@ -19,19 +21,45 @@ export async function UserNav(){
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[200px]">
             {user ? (<>
-                            <DropdownMenuItem>
-                                <LogoutLink className="w-full">Logout</LogoutLink>
-                                </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <form className = "w-full">
+                            <button type = "submit" className="w-full text-start">
+                                Airbnb your Home
+                            </button>
+                        </form>
+                    </DropdownMenuItem>
+
+
+                    <DropdownMenuItem>
+                        <Link href="/my-homes" className="w-full"> My Listenings</Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem>
+                        <Link href="/favourites" className="w-full"> My Favourits</Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem>
+                        <Link href="/resevations" className="w-full"> My Resevations</Link>
+                    </DropdownMenuItem>
+
+
+                    <DropdownMenuSeparator />
+
+                    
+
+                    <DropdownMenuItem>
+                    <LogoutLink className="w-full">Logout</LogoutLink>
+                    </DropdownMenuItem>
                     </>
             
             ):(
                 <>
-                                <DropdownMenuItem>
-                    <RegisterLink className="w-full">Register</RegisterLink>
+                 <DropdownMenuItem>
+                <RegisterLink className="w-full">Register</RegisterLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                    <LoginLink className="w-full">Login</LoginLink>
-                    </DropdownMenuItem>
+                <LoginLink className="w-full">Login</LoginLink>
+                </DropdownMenuItem>
 
                 </>
             )}
