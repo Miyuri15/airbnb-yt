@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation"
 import prisma from "./lib/db"
 import { supabase } from "./lib/superbase";
+import { revalidatePath } from "next/cache";
 
 //redirect to the home structure when click on airbnb home on menu
 export async function createAirbnbHome({ userId }: { userId: string }) {
@@ -106,4 +107,33 @@ export async function createLocation(formData:FormData){
     },
   });
   return redirect("/")
+}
+
+export async function addToFavourite(formData:FormData){
+  const homeId = formData.get('homeId') as string
+  const userId = formData.get('userId') as string
+  const pathName = formData.get('pathName') as string
+
+  const data = await prisma.favourite.create({
+    data:{
+      homeId:homeId,
+      userId:userId,
+    },
+  })
+  revalidatePath(pathName)
+}
+
+export async function deleteFromFavourite(formData:FormData){
+  const favouriteId = formData.get('favouriteId') as string
+  const pathName = formData.get('pathName') as string
+  const userId = formData.get('userId') as string
+
+  const data = await prisma.favourite.delete({
+    where:{
+      id:favouriteId,
+      userId:userId,
+    },
+  })
+
+  revalidatePath(pathName)
 }

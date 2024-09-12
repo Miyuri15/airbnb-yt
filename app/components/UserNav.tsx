@@ -56,7 +56,7 @@ import {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/favorites" className="w-full">
+                <Link href="/favourites" className="w-full">
                   My Favorites
                 </Link>
               </DropdownMenuItem>

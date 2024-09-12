@@ -4,10 +4,13 @@ import ListingCard from "./components/ListingCard";
 import { Suspense } from "react";
 import { SkeletonCard } from "./components/SkeletonCard";
 import { NoItems } from "./components/NoItem";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 async function getData({
   searchParams,
+  userId
 }:{
+  userId:string | undefined
   searchParams?:{
     filter?:string;
   }
@@ -25,6 +28,11 @@ async function getData({
       price:true,
       description:true,
       country:true,
+      Favourite:{
+        where:{
+          userId:userId ?? undefined,
+        }
+      }
     }
   })
   return data;
@@ -56,12 +64,17 @@ async function ShowItems({
 }
 
 ){
-  const data = await getData({searchParams: searchParams})
+  const {getUser} = getKindeServerSession()
+  const user = await getUser()
+  const data = await getData({searchParams: searchParams , userId:user.id})
 
   return(
     <>
     {data.length === 0 ? (
-      <NoItems/>
+      <NoItems 
+      description="Please check another category or create your own listing!" 
+      title="Sorry! no Listings for this category found...."
+      />
     ):(
       <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8" >
       {data.map((item) => (
@@ -70,6 +83,11 @@ async function ShowItems({
         imagePath={item.photo as string} 
         location={item.country as string}
         price={item.price as number}
+        userId={user?.id}
+        favouriteId={item.Favourite[0]?.id}
+        isInFavouriteList={item.Favourite.length>0 ? true : false}
+        homeId={item.id}
+        pathName="/"
         />
       ))}
     </div>

@@ -1,9 +1,6 @@
 import { createCategoryPage } from "@/app/actions";
 import { CreationBottomBar } from "@/app/components/CreationBottomBar";
 import { SelectCategory } from "@/app/components/SelectedCategory";
-import { CreationSubmit } from "@/app/components/Submitbuttons";
-import { Button } from "@/components/ui/button";
-import  Link from "next/link";
 
 export default function StructureRoute({params}: {params : {id:string}}){
     return(
