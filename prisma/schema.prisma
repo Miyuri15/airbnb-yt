@@ -46,3 +46,7 @@ model Home{
   userId String?
 
 }
+
+model Favourite{
+  id String @id @default(uuid())
+}
