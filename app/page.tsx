@@ -85,7 +85,7 @@ async function ShowItems({
 ){
   const {getUser} = getKindeServerSession()
   const user = await getUser()
-  const data = await getData({searchParams: searchParams , userId:user.id})
+  const data = await getData({searchParams: searchParams , userId:user?.id})
 
   return(
     <>
