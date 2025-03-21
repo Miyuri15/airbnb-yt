@@ -34,7 +34,7 @@ Installation
 
 1. Clone the repository:
   
-   git clone https://github.com/your-username/airbnb-clone.git
+   git clone https://github.com/Miyuri15/airbnb-yt.git
    cd airbnb-clone
   
 
