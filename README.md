@@ -104,8 +104,11 @@ Here are the dependencies and their versions used in this project:
  `dependencies`
 
 "@kinde-oss/kinde-auth-nextjs": "^2.5.3",
+
 "@prisma/client": "^5.19.1",
+
 "@supabase/supabase-js": "^2.45.4",
+
 "@types/leaflet": "^1.9.8",
 "leaflet": "^1.9.4",
 "next": "^15.2.3",
