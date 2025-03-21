@@ -110,11 +110,17 @@ Here are the dependencies and their versions used in this project:
 "@supabase/supabase-js": "^2.45.4",
 
 "@types/leaflet": "^1.9.8",
+
 "leaflet": "^1.9.4",
+
 "next": "^15.2.3",
+
 "react": "^18.3.1",
+
 "react-dom": "^18.3.1",
+
 "react-leaflet": "^4.2.1",
+
 "world-countries": "^5.0.0"
 
 
@@ -122,13 +128,21 @@ Here are the dependencies and their versions used in this project:
  `devDependencies`
 
 "@types/leaflet": "^1.9.12",
+
 "@types/node": "^20",
+
 "@types/react": "^18",
+
 "@types/react-dom": "^18",
+
 "eslint": "^8",
+
 "eslint-config-next": "14.2.8",
+
 "prisma": "^5.19.1",
+
 "tailwindcss": "^3.4.1",
+
 "typescript": "^5"
 
 
