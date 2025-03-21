@@ -10,7 +10,7 @@ const nextConfig = {
                 port:"",
             },
             {
-                hostname:"oiivzpifxsejdbbqtocf.supabase.co",
+                hostname:"zjeducfrzeulgljzsyzi.supabase.co",
                 protocol:"https",
                 port:"",
             }

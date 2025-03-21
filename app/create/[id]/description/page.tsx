@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function Description({params}:{params:{id:string}}){
+export default async function Description({params}:{params:{id:string}}){
     return(
         <>
         <div className="w-3/5 mx-auto">

@@ -64,7 +64,7 @@ function SubmitButtonLocal(){
                         </SelectGroup>
                     </SelectContent>
                 </Select>
-                            <HomeMap locationValue={locationValue}/>
+                            {/* <HomeMap locationValue={locationValue}/> */}
                         </>
                     ):(
                         <>

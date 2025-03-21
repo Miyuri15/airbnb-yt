@@ -2,7 +2,7 @@ import { createCategoryPage } from "@/app/actions";
 import { CreationBottomBar } from "@/app/components/CreationBottomBar";
 import { SelectCategory } from "@/app/components/SelectedCategory";
 
-export default function StructureRoute({params}: {params : {id:string}}){
+export default async function StructureRoute({params}: {params : {id:string}}){
     return(
         <>
         <div className="w-3/5 mx-auto">
